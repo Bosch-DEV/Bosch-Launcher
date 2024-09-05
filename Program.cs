@@ -3,7 +3,11 @@ using static Ignite.Console;
 
 
 var display = 1;
-Window window = new Window(0);
+var window = new Window(0);
+var running = true;
+
+//TODO: Find a way to intercept F11
+
 /*
 var instance = new Draw (display);
 var heightCal = ((Monitors[display].Resolution.Height / 100) * 70);
