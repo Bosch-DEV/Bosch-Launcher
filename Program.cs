@@ -3,7 +3,7 @@ using static Ignite.Console;
 
 
 var display = 1;
-Window window = new Window(1);
+Window window = new Window(0);
 /*
 var instance = new Draw (display);
 var heightCal = ((Monitors[display].Resolution.Height / 100) * 70);
