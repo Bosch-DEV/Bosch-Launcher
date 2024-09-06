@@ -1,12 +1,18 @@
-﻿using static Ignite.Screen;
-using static Ignite.Console;
+﻿using Ignite;
 
+public class Programm {
 
-var display = 1;
-var window = new Window(0);
-var running = true;
+    int display = 1;
+    Window window;
+    static void Main () => _= new Programm();
 
-//TODO: Find a way to intercept F11
+    public Programm() {
+        window = new Window (display);
+        //Screen.Identify ();
+        Runner.KeepAliveMultiThreaded ();
+    }
+}
+
 
 /*
 var instance = new Draw (display);
@@ -32,5 +38,3 @@ for (var i = 0; i < length * 3; i += length) {
 
 instance.Append (new Text (x + Text.Width ($"Round 1/{rounds}") + length, y - 25, $"Round 1/{rounds}"));
 */
-
-Console.ReadLine ();

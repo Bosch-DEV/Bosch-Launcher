@@ -7,6 +7,9 @@
             [System.Runtime.InteropServices.DllImport ("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto, SetLastError = true)]
             internal static extern bool GetMonitorInfo (nint hMonitor, ref MONITORINFO lpmi);
 
+            [System.Runtime.InteropServices.DllImport ("user32.dll")]
+            internal static extern bool GetCursorPos (out POINT lpPoint);
+
             [System.Runtime.InteropServices.DllImport ("user32.dll", SetLastError = true, CharSet = System.Runtime.InteropServices.CharSet.Unicode)]
             internal static extern nint CreateWindowEx (int dwExStyle, string lpClassName, string lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, nint hWndParent, nint hMenu, nint hInstance, nint lpParam);
 
@@ -182,6 +185,11 @@
             return true;
         }
 
+        public static void Identify () {
+            for (var i = 0; i < Monitors.Count; i++)
+                Draw.Temporarily (new Text (Monitors[i].Resolution.Width - Text.Width (i + 1, size: 128), -30, i + 1, size: 128), 1000, i);
+        }
+
         public struct Line {
             private int Shadow_Length;
             private int Shadow_Thickness;
@@ -320,7 +328,7 @@
                 readonly get => this.Shadow_Radius;
                 set {
                     if (value is <= 0 or null)
-                        throw new System.ArgumentException ("An arc cannot have a radius that is less than or equal to zero.");
+                        throw new System.ArgumentException ("A circle cannot have a radius that is less than or equal to zero.");
 
                     this.Shadow_Radius = value;
                     this.Shadow_Width = Shadow_Radius.Value;
@@ -331,7 +339,7 @@
                 readonly get => this.Shadow_Width;
                 set {
                     if (value is <= 0)
-                        throw new System.ArgumentException ("An arc cannot have a width that is less than or equal to zero.");
+                        throw new System.ArgumentException ("A circle cannot have a width that is less than or equal to zero.");
 
                     this.Shadow_Width = value;
                     this.Shadow_Radius = this.Shadow_Width == this.Shadow_Height
@@ -343,7 +351,7 @@
                 readonly get => this.Shadow_Height;
                 set {
                     if (value is <= 0)
-                        throw new System.ArgumentException ("An arc cannot have a height that is less than or equal to zero.");
+                        throw new System.ArgumentException ("A circle cannot have a height that is less than or equal to zero.");
 
                     this.Shadow_Height = value;
                     this.Shadow_Radius = this.Shadow_Height == this.Shadow_Width
@@ -356,7 +364,7 @@
                 readonly get => this.Shadow_Thickness;
                 set {
                     if (value <= 0)
-                        throw new System.ArgumentException ("An arc cannot have a thickness that is less than or equal to zero");
+                        throw new System.ArgumentException ("A circle cannot have a thickness that is less than or equal to zero");
 
                     this.Shadow_Thickness = value;
                 }
@@ -532,7 +540,7 @@
 
             public int X;
             public int Y;
-            public string Content;
+            public object Content;
             public uint Foreground;
             public uint Background;
             public int Size {
@@ -551,7 +559,7 @@
             public bool Strikethrough;
             public int Rotation;
 
-            public Text (in int x, in int y, in string content, in uint foreground = Color.White, in uint background = Color.Transparent, in int size = 16, in string font = "Consolas", in bool bold = false, in bool italic = false, in bool underline = false, in bool strikethrough = false, in int rotation = 0) {
+            public Text (in int x, in int y, in object content, in uint foreground = Color.White, in uint background = Color.Transparent, in int size = 16, in string font = "Consolas", in bool bold = false, in bool italic = false, in bool underline = false, in bool strikethrough = false, in int rotation = 0) {
                 this.X = x;
                 this.Y = y;
                 this.Content = content;
@@ -571,12 +579,12 @@
             public int Height ()
                 => Sizes (in this.Shadow_Size, in this.Rotation, in this.Bold, in this.Italic, in this.Underline, in this.Strikethrough, in this.Font, in this.Content).cy + 1;
 
-            public static int Width (in string content, in int size = 16, in string font = "Consolas", in bool bold = false, in bool italic = false, in bool underline = false, in bool strikethrough = false, in int rotation = 0)
+            public static int Width (in object content, in int size = 16, in string font = "Consolas", in bool bold = false, in bool italic = false, in bool underline = false, in bool strikethrough = false, in int rotation = 0)
                 => Sizes (in size, in rotation, in bold, in italic, in underline, in strikethrough, in font, in content).cx + 1;
-            public static int Height (in string content, in int size = 16, in string font = "Consolas", in bool bold = false, in bool italic = false, in bool underline = false, in bool strikethrough = false, in int rotation = 0)
+            public static int Height (in object content, in int size = 16, in string font = "Consolas", in bool bold = false, in bool italic = false, in bool underline = false, in bool strikethrough = false, in int rotation = 0)
                 => Sizes (in size, in rotation, in bold, in italic, in underline, in strikethrough, in font, in content).cy + 1;
 
-            private static Import.SIZE Sizes (in int size, in int rotation, in bool bold, in bool italic, in bool underline, in bool strikethrough, in string font, in string content) {
+            private static Import.SIZE Sizes (in int size, in int rotation, in bool bold, in bool italic, in bool underline, in bool strikethrough, in string font, in object content) {
                 var handle = Import.CreateCompatibleDC (nint.Zero);
 
                 var current = Import.CreateFont (
@@ -597,13 +605,84 @@
                 );
 
                 var previous = Import.SelectObject (handle, current);
+                var text = content.ToString () ?? "";
 
-                _ = Import.GetTextExtentPoint32 (handle, content, content.Length, out var SIZE);
+                _ = Import.GetTextExtentPoint32 (handle, text, text.Length, out var SIZE);
                 _ = Import.SelectObject (handle, previous);
                 _ = Import.DeleteObject (current);
                 _ = Import.DeleteDC (handle);
 
                 return SIZE;
+            }
+        }
+
+        public static class Mouse {
+            [System.Runtime.InteropServices.DllImport ("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+            private static extern bool GetMonitorInfo (nint hMonitor, MONITORINFO lpmi);
+
+            [System.Runtime.InteropServices.StructLayout (System.Runtime.InteropServices.LayoutKind.Sequential, CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+            private class MONITORINFO {
+                public int cbSize = System.Runtime.InteropServices.Marshal.SizeOf (typeof (MONITORINFO));
+                public Import.RECT rcMonitor = new ();
+                public Import.RECT rcWork = new ();
+                public int dwFlags = 0;
+            }
+
+            private static int Index;
+            private static Import.POINT Point, Last;
+            private static bool Found = false;
+
+            private static class Shadow {
+                internal static int Monitor;
+                internal static ((int X, int Y) True, (int X, int Y) Relative) Position;
+            }
+
+            public static int Monitor {
+                get {
+                    Fetch ();
+                    return Shadow.Monitor;
+                }
+            }
+
+            public static ((int X, int Y) True, (int X, int Y) Relative) Position {
+                get {
+                    Fetch ();
+                    return (Shadow.Position.True, Shadow.Position.Relative);
+                }
+            }
+
+            private static void Fetch () {
+                if (Import.GetCursorPos (out Point)) {
+                    if (Point.X != Last.X || Point.Y != Last.Y) {
+                        Last = Point;
+                        Index = -1;
+                        Shadow.Position.True = (Point.X, Point.Y);
+                        Found = false;
+
+                        _ = Import.EnumDisplayMonitors (nint.Zero, nint.Zero, Enum, nint.Zero);
+
+                        if (!Found)
+                            throw new System.Exception ("No monitor found where the mouse is located.");
+                    }
+                } else {
+                    throw new System.Exception ("Error when retrieving the mouse position.");
+                }
+            }
+
+            private static bool Enum (nint hMonitor, nint hdcMonitor, ref Import.RECT lprcMonitor, nint dwData) {
+                Index++;
+
+                if (Point.X >= lprcMonitor.left && Point.X <= lprcMonitor.right && Point.Y >= lprcMonitor.top && Point.Y <= lprcMonitor.bottom) {
+                    var info = new MONITORINFO ();
+
+                    _ = GetMonitorInfo (hMonitor, info);
+
+                    Found = true;
+                    Shadow.Monitor = Index;
+                    Shadow.Position.Relative = (Point.X - info.rcMonitor.left, Point.Y - info.rcMonitor.top);
+                    return false;
+                }
+                return true;
             }
         }
 
@@ -910,11 +989,12 @@
                     );
 
                     var previous = Import.SelectObject (handle, current);
+                    var content = text.Content.ToString () ?? "";
 
                     _ = Import.SetBkMode (handle, text.Background == Color.Transparent ? 1 : 2);
                     _ = Import.SetTextColor (handle, Format (text.Foreground));
                     _ = Import.SetBkColor (handle, Format (text.Background));
-                    _ = Import.TextOut (handle, text.X, text.Y, text.Content, text.Content.Length);
+                    _ = Import.TextOut (handle, text.X, text.Y, content, content.Length);
                     _ = Import.SelectObject (handle, previous);
                     _ = Import.DeleteObject (current);
                     _ = Import.ReleaseDC (this.Handle, handle);
@@ -972,6 +1052,14 @@
                     System.Threading.Tasks.Task.Delay (delay).Wait ();
                     draw.Erase ();
                 });
+
+            public void Clear () {
+                if (this.Handle == nint.Zero)
+                    return;
+
+                this.Append (new Rectangle (0, 0, Monitors[this.Monitor].Resolution.Width, Monitors[this.Monitor].Resolution.Height, Color.Transparent, fill: true));
+                System.GC.Collect (2, System.GCCollectionMode.Aggressive);
+            }
 
             public void Erase () {
                 if (this.Handle == nint.Zero)
@@ -1033,10 +1121,10 @@
                     -2147483648,
                     Monitors[monitor].rcMonitor.left,
                     Monitors[monitor].rcMonitor.top,
-                    Monitors[monitor].rcMonitor.right - Monitors[monitor].rcMonitor.left,
-                    Monitors[monitor].rcMonitor.bottom - Monitors[monitor].rcMonitor.top,
-                    nint.Zero,
-                    nint.Zero,
+                Monitors[monitor].rcMonitor.right - Monitors[monitor].rcMonitor.left,
+                Monitors[monitor].rcMonitor.bottom - Monitors[monitor].rcMonitor.top,
+                nint.Zero,
+                nint.Zero,
                     nint.Zero,
                     nint.Zero);
 
