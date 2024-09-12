@@ -1,0 +1,109 @@
+﻿<Page x:Class="Bosch_Launcher.Pages.Games"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bosch_Launcher.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Sort by"
+              FontSize="16"
+              Grid.Row="0"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              BorderBrush="Blue"
+              BorderThickness="3"
+              Padding="10"
+              Margin="10,0,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <RadioButton GroupName="SortingOptions" Content="A-Z" Margin="10" IsChecked="True" Checked="RadioButton_A_Z_Checked" />
+                <RadioButton GroupName="SortingOptions" Content="Z-A" Margin="10" Checked="RadioButton_Z_A_Checked" />
+                <RadioButton GroupName="SortingOptions" Content="Downloaded" Margin="10" />
+                <RadioButton GroupName="SortingOptions" Content="Recently Downloaded" Margin="10" />
+                <RadioButton GroupName="SortingOptions" Content="Recently Added" Margin="10" />
+            </StackPanel>
+        </GroupBox>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Items}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Blue"
+                        BorderThickness="2"
+                        CornerRadius="10"
+                        Margin="10"
+                        Focusable="True"
+                        MouseDown="Border_MouseDown">
+                            <Grid>
+                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding Title}"
+                                               FontWeight="Bold"
+                                               FontSize="20"
+                                               HorizontalAlignment="Center" />
+                                    <Image Source="{Binding Image}"
+                                            Width="100"
+                                            Height="100"
+                                            HorizontalAlignment="Center" />
+                                    <TextBlock Text="{Binding Author}"
+                                               FontSize="14"
+                                               HorizontalAlignment="Center" />
+                                </StackPanel>
+
+                                <Rectangle Name="hoverOverlay"
+                                   Fill="Transparent"
+                                   RadiusX="10"
+                                   RadiusY="10"
+                                   Opacity="0"
+                                   Stretch="Fill"
+                                   IsHitTestVisible="False" />
+
+                                <Grid.Triggers>
+                                    <EventTrigger RoutedEvent="MouseEnter">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="hoverOverlay"
+                                                                Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                                To="#D3E8FF"
+                                                                Duration="0:0:0.1" />
+                                                <DoubleAnimation Storyboard.TargetName="hoverOverlay"
+                                                                 Storyboard.TargetProperty="Opacity"
+                                                                 To="0.9"
+                                                                 Duration="0:0:0.1" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="MouseLeave">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="hoverOverlay"
+                                                                Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                                To="Transparent"
+                                                                Duration="0:0:0.2" />
+                                                <DoubleAnimation Storyboard.TargetName="hoverOverlay"
+                                                                 Storyboard.TargetProperty="Opacity"
+                                                                 To="0"
+                                                                 Duration="0:0:0.1" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Grid.Triggers>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Page>

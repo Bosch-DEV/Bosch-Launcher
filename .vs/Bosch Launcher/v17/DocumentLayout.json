@@ -1,0 +1,124 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\SLQ1FE\\Desktop\\Upload\\Bosch Launcher\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{64C4751C-10F0-4207-AAE5-47D313DDB569}|Bosch Launcher.csproj|c:\\users\\slq1fe\\desktop\\upload\\bosch launcher\\pages\\games.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{64C4751C-10F0-4207-AAE5-47D313DDB569}|Bosch Launcher.csproj|solutionrelative:pages\\games.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64C4751C-10F0-4207-AAE5-47D313DDB569}|Bosch Launcher.csproj|c:\\users\\slq1fe\\desktop\\upload\\bosch launcher\\pages\\games.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{64C4751C-10F0-4207-AAE5-47D313DDB569}|Bosch Launcher.csproj|solutionrelative:pages\\games.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64C4751C-10F0-4207-AAE5-47D313DDB569}|Bosch Launcher.csproj|c:\\users\\slq1fe\\desktop\\upload\\bosch launcher\\extentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64C4751C-10F0-4207-AAE5-47D313DDB569}|Bosch Launcher.csproj|solutionrelative:extentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64C4751C-10F0-4207-AAE5-47D313DDB569}|Bosch Launcher.csproj|c:\\users\\slq1fe\\desktop\\upload\\bosch launcher\\windows\\dialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64C4751C-10F0-4207-AAE5-47D313DDB569}|Bosch Launcher.csproj|solutionrelative:windows\\dialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64C4751C-10F0-4207-AAE5-47D313DDB569}|Bosch Launcher.csproj|c:\\users\\slq1fe\\desktop\\upload\\bosch launcher\\pages\\settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{64C4751C-10F0-4207-AAE5-47D313DDB569}|Bosch Launcher.csproj|solutionrelative:pages\\settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64C4751C-10F0-4207-AAE5-47D313DDB569}|Bosch Launcher.csproj|c:\\users\\slq1fe\\desktop\\upload\\bosch launcher\\pages\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64C4751C-10F0-4207-AAE5-47D313DDB569}|Bosch Launcher.csproj|solutionrelative:pages\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Games.xaml",
+              "DocumentMoniker": "C:\\Users\\SLQ1FE\\Desktop\\Upload\\Bosch Launcher\\Pages\\Games.xaml",
+              "RelativeDocumentMoniker": "Pages\\Games.xaml",
+              "ToolTip": "C:\\Users\\SLQ1FE\\Desktop\\Upload\\Bosch Launcher\\Pages\\Games.xaml",
+              "RelativeToolTip": "Pages\\Games.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-11T20:17:57.659Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Games.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\SLQ1FE\\Desktop\\Upload\\Bosch Launcher\\Pages\\Games.xaml.cs",
+              "RelativeDocumentMoniker": "Pages\\Games.xaml.cs",
+              "ToolTip": "C:\\Users\\SLQ1FE\\Desktop\\Upload\\Bosch Launcher\\Pages\\Games.xaml.cs",
+              "RelativeToolTip": "Pages\\Games.xaml.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAQwFkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T19:37:43.468Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Settings.xaml",
+              "DocumentMoniker": "C:\\Users\\SLQ1FE\\Desktop\\Upload\\Bosch Launcher\\Pages\\Settings.xaml",
+              "RelativeDocumentMoniker": "Pages\\Settings.xaml",
+              "ToolTip": "C:\\Users\\SLQ1FE\\Desktop\\Upload\\Bosch Launcher\\Pages\\Settings.xaml",
+              "RelativeToolTip": "Pages\\Settings.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-11T20:43:19.726Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Settings.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\SLQ1FE\\Desktop\\Upload\\Bosch Launcher\\Pages\\Settings.xaml.cs",
+              "RelativeDocumentMoniker": "Pages\\Settings.xaml.cs",
+              "ToolTip": "C:\\Users\\SLQ1FE\\Desktop\\Upload\\Bosch Launcher\\Pages\\Settings.xaml.cs",
+              "RelativeToolTip": "Pages\\Settings.xaml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAIwC8AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T20:43:04.663Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Extentions.cs",
+              "DocumentMoniker": "C:\\Users\\SLQ1FE\\Desktop\\Upload\\Bosch Launcher\\Extentions.cs",
+              "RelativeDocumentMoniker": "Extentions.cs",
+              "ToolTip": "C:\\Users\\SLQ1FE\\Desktop\\Upload\\Bosch Launcher\\Extentions.cs",
+              "RelativeToolTip": "Extentions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T08:31:08.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Dialog.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\SLQ1FE\\Desktop\\Upload\\Bosch Launcher\\Windows\\Dialog.xaml.cs",
+              "RelativeDocumentMoniker": "Windows\\Dialog.xaml.cs",
+              "ToolTip": "C:\\Users\\SLQ1FE\\Desktop\\Upload\\Bosch Launcher\\Windows\\Dialog.xaml.cs",
+              "RelativeToolTip": "Windows\\Dialog.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T08:30:54.237Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

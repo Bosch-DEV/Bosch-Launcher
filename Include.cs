@@ -1,0 +1,1 @@
+﻿global using static Bosch_Launcher.Extensions;

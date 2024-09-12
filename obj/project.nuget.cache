@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "EWZShG23PIc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\SLQ1FE\\Desktop\\Upload\\Bosch Launcher\\Bosch Launcher.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SLQ1FE\\.nuget\\packages\\markdig\\0.37.0\\markdig.0.37.0.nupkg.sha512"
+  ],
+  "logs": []
+}

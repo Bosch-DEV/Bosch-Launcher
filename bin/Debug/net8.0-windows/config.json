@@ -1,0 +1,19 @@
+{
+  "Resolution": "1280, 720",
+  "FpsOverlay": false,
+  "LevelsFolder": "C:\\Users\\SLQ1FE\\Documents\\Games\\Leapster\\Levels",
+  "TotalCoinsCollected": 4,
+  "HMode": false,
+  "PlayerLevelData": {
+    "89914bba15584b83ab8a2682975638f7db3a3fa691c6675bfc9ec9f91b9fff47": {
+      "Item1": 0,
+      "Item2": true,
+      "Item3": true
+    },
+    "e505503a33709ce5e87a2b43e7b9255f9eefe6113af47d095551f581b8587c52": {
+      "Item1": 4,
+      "Item2": true,
+      "Item3": true
+    }
+  }
+}
