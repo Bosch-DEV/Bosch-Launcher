@@ -9,7 +9,7 @@ A Game created with ImGui.
 **This launcher is highly experimental. If you encounter any issues, please let us know by opening a new issue.**
 
 ## Installation
-1. Download the newest version of [Leapster](https://github.com/Moldybot9411/Leapster/releases/download/v0.5/Leapster.zip).
+1. Download the newest version of the [Bosch Launcher]([https://github.com/Moldybot9411/Leapster/releases/download/v0.5/Leapster.zip](https://github.com/Bosch-DEV/Bosch-Launcher/releases/download/v0.5/BoschLauncher.zip)).
 2. Extract the BoschLauncher Zip archive in the folder of your choice.
 3. Open the Bosch Launcher.exe file
 4. If Windows SmartScreen is complaining, **Click "More info" and then "Execute anyway"** 
@@ -20,12 +20,8 @@ A Game created with ImGui.
 
 
 
-
-
-<!---
 ## Contributors
 
-<a href="https://github.com/Moldybot9411/Leapster/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Moldybot9411/Leapster" alt="contrib.rocks image" />
+<a href="https://github.com/Bosch-DEV/Bosch-Launcher/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Bosch-DEV/Bosch-Launcher" alt="contrib.rocks image" />
 </a>
--->
