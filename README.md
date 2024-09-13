@@ -1,4 +1,4 @@
-# Leapster
+# Bosch Launcher
 
 ![GitHub all releases](https://img.shields.io/github/downloads/Bosch-DEV/Bosch-Launcher/total?color=%23FF8C00&style=flat-square)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/Bosch-DEV/Bosch-Launcher?style=flat-square)
