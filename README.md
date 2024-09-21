@@ -3,7 +3,7 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/Bosch-DEV/Bosch-Launcher/total?color=%23FF8C00&style=flat-square)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/Bosch-DEV/Bosch-Launcher?style=flat-square)
 
-A Game created with ImGui.
+A Launcher created with ~~ImGui~~ WPF.
 
 ## **DISCLAIMER**
 **This launcher is highly experimental. If you encounter any issues, please let us know by opening a new issue.**
